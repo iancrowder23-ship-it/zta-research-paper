@@ -1,0 +1,153 @@
+================================================================================
+  ZERO TRUST ARCHITECTURE: REDEFINING SECURITY IN THE MODERN ENTERPRISE
+  [YOUR NAME] | [COURSE / INSTITUTION] | [DATE]
+================================================================================
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ABSTRACT  (~150 words | not counted in page total)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  - Brief overview of what Zero Trust Architecture (ZTA) is
+  - Why traditional perimeter-based security models are failing
+  - What this paper examines / argues
+  - Key conclusion / takeaway
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+I. INTRODUCTION  (~0.5 page | p. 1)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  A. Hook / Opening — rise in cyberattacks, data breaches, ransomware
+  B. The problem statement — the "castle-and-moat" model no longer works
+  C. Thesis statement — ZTA offers a more resilient, identity-centric approach
+     to cybersecurity for modern distributed environments
+  D. Roadmap — brief overview of what each section covers
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+II. BACKGROUND & HISTORY  (~1 page | pp. 1–2)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  A. Traditional perimeter-based security models
+     1. How they worked (trusted inside, untrusted outside)
+     2. Limitations exposed by cloud computing & remote work
+  B. Origins of Zero Trust
+     1. John Kindervag's 2010 paper at Forrester Research
+     2. Google's BeyondCorp as an early real-world implementation
+  C. Evolution of the term and growing industry adoption
+  D. NIST SP 800-207 formalizing ZTA standards (2020)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+III. CORE PRINCIPLES OF ZERO TRUST  (~1.5 pages | pp. 2–3)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  A. "Never Trust, Always Verify"
+     1. Continuous authentication & authorization
+     2. No implicit trust based on network location
+  B. Least-Privilege Access
+     1. Users/devices get only the access they need
+     2. Minimizing the blast radius of a breach
+  C. Assume Breach Mentality
+     1. Designing systems as if attackers are already inside
+     2. Micro-segmentation of networks
+  D. Continuous Monitoring & Validation
+     1. Real-time telemetry and behavioral analytics
+     2. Dynamic policy enforcement
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IV. KEY COMPONENTS & TECHNOLOGIES  (~1.5 pages | pp. 3–5)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  A. Identity & Access Management (IAM)
+     1. Multi-Factor Authentication (MFA)
+     2. Single Sign-On (SSO) and identity providers
+  B. Device Health & Endpoint Security
+     1. Device trust scoring / posture assessment
+     2. Mobile Device Management (MDM)
+  C. Micro-Segmentation
+     1. Software-defined perimeters
+     2. East-west traffic control inside the network
+  D. Policy Decision Point (PDP) & Policy Enforcement Point (PEP)
+     1. How ZTA makes access decisions
+     2. Role of the Policy Engine
+  E. Encryption & Data Security
+     1. Data encryption in transit and at rest
+     2. Data Loss Prevention (DLP) tools
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+V. REAL-WORLD IMPLEMENTATIONS & CASE STUDIES  (~1.5 pages | pp. 5–6)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  A. Google BeyondCorp
+     1. Transition away from VPN-based access
+     2. Results and lessons learned
+  B. U.S. Federal Government Mandate
+     1. Executive Order 14028 (2021) — ZTA requirement for federal agencies
+     2. CISA's ZTA roadmap
+  C. Enterprise Adoption Examples
+     1. [Case study of your choice — e.g., Microsoft, Okta, a healthcare org]
+     2. Outcomes: reduced breach surface, improved compliance
+  D. Common implementation challenges
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VI. CHALLENGES & CRITICISMS  (~1 page | pp. 6–7)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  A. Implementation Complexity
+     1. Legacy system integration issues
+     2. High upfront cost and resource demands
+  B. Organizational & Cultural Resistance
+     1. User friction from stricter authentication
+     2. IT staff retraining requirements
+  C. Vendor Lock-In Risks
+     1. Reliance on specific platforms/tools
+     2. Interoperability concerns
+  D. ZTA Is Not a Silver Bullet
+     1. What it doesn't protect against (e.g., insider threats with valid creds)
+     2. Ongoing maintenance requirements
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VII. FUTURE OUTLOOK  (~0.5 page | p. 7)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  A. AI/ML integration with ZTA (adaptive, intelligent policy enforcement)
+  B. ZTA in IoT and OT environments
+  C. ZTA's role in post-quantum cryptography readiness
+  D. Growing regulatory pressure driving adoption
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VIII. CONCLUSION  (~0.5 page | pp. 7–8)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  A. Restate the problem — why the old model is dead
+  B. Summarize ZTA's core value proposition
+  C. Acknowledge limitations while affirming its necessity
+  D. Closing argument — ZTA is not optional, it's the future of enterprise security
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+REFERENCES  (p. 8 — separate page)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [APA / MLA / IEEE format — add your sources here]
+
+  Suggested sources to look up:
+  - NIST SP 800-207 (Zero Trust Architecture)
+  - Kindervag, J. (2010). No More Chewy Centers. Forrester Research.
+  - Google BeyondCorp whitepaper series
+  - Executive Order 14028 (May 2021)
+  - CISA Zero Trust Maturity Model
+  - Rose, S. et al. (2020). Zero Trust Architecture. NIST.
+
+
+================================================================================
+PAGE BUDGET SUMMARY
+================================================================================
+  Abstract ............... ~150 words (not counted)
+  I.   Introduction ....... ~0.5 page
+  II.  Background ......... ~1.0 page
+  III. Core Principles .... ~1.5 pages
+  IV.  Components ......... ~1.5 pages
+  V.   Case Studies ....... ~1.5 pages
+  VI.  Challenges ......... ~1.0 page
+  VII. Future Outlook ..... ~0.5 page
+  VIII.Conclusion ......... ~0.5 page
+  References .............. ~0.5–1 page
+  TOTAL ................... ~8 pages
+================================================================================

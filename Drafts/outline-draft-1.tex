@@ -1,0 +1,320 @@
+\documentclass[12pt, letterpaper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{times}           % Times New Roman font
+\usepackage{titlesec}        % Custom section headings
+\usepackage{parskip}         % Paragraph spacing
+\usepackage{hyperref}        % Clickable references
+\usepackage{natbib}          % Bibliography (swap for biblatex if preferred)
+\usepackage{lipsum}          % REMOVE when filling in real content
+
+% ── Spacing ───────────────────────────────────────────────────────────────────
+\doublespacing
+
+% ── Section Formatting ────────────────────────────────────────────────────────
+\titleformat{\section}{\large\bfseries}{\Roman{section}.}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\Alph{subsection}.}{1em}{}
+\titleformat{\subsubsection}{\normalsize\itshape}{\arabic{subsubsection}.}{1em}{}
+
+% ── Hyperlink Setup ───────────────────────────────────────────────────────────
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue
+}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+
+% ── Title Page ────────────────────────────────────────────────────────────────
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\LARGE\bfseries Zero Trust Architecture: Redefining Security\\
+    in the Modern Enterprise\par}
+    \vspace{2cm}
+    {\large Your Name\par}
+    \vspace{0.5cm}
+    {\large Course Name / Number\par}
+    {\large Institution Name\par}
+    \vspace{0.5cm}
+    {\large \today\par}
+    \vfill
+\end{titlepage}
+
+% ── Abstract ──────────────────────────────────────────────────────────────────
+\begin{abstract}
+% ~150 words — brief overview of ZTA, why perimeter-based security is failing,
+% what this paper examines, and the key conclusion.
+%
+% TODO: Write abstract here.
+\lipsum[1] % DELETE this line and replace with your abstract
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+% ══════════════════════════════════════════════════════════════════════════════
+% I. INTRODUCTION  (~0.5 page)
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+
+\subsection{Hook / Opening}
+% Rise in cyberattacks, data breaches, ransomware — set the scene.
+
+\subsection{Problem Statement}
+% The "castle-and-moat" perimeter model no longer works in a cloud-first,
+% remote-work world.
+
+\subsection{Thesis Statement}
+% Zero Trust Architecture offers a more resilient, identity-centric approach
+% to cybersecurity for modern distributed environments.
+
+\subsection{Roadmap}
+% Brief overview of what each section covers.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% II. BACKGROUND \& HISTORY  (~1 page)
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Background and History}
+
+\subsection{Traditional Perimeter-Based Security Models}
+
+    \subsubsection{How They Worked}
+    % Trusted inside, untrusted outside — the implicit trust model.
+
+    \subsubsection{Limitations}
+    % Failure modes exposed by cloud computing, BYOD, and remote work.
+
+\subsection{Origins of Zero Trust}
+
+    \subsubsection{John Kindervag's 2010 Forrester Research Paper}
+    % Coined the term "Zero Trust"; challenged the concept of trusted networks.
+
+    \subsubsection{Google's BeyondCorp}
+    % One of the earliest large-scale real-world implementations.
+
+\subsection{Evolution and Growing Industry Adoption}
+% From niche concept to mainstream security framework.
+
+\subsection{NIST SP 800-207 (2020)}
+% Formal standardization of Zero Trust Architecture by NIST.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% III. CORE PRINCIPLES OF ZERO TRUST  (~1.5 pages)
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Core Principles of Zero Trust}
+
+\subsection{``Never Trust, Always Verify''}
+
+    \subsubsection{Continuous Authentication and Authorization}
+    % Every request must be authenticated regardless of origin.
+
+    \subsubsection{No Implicit Trust Based on Network Location}
+    % Being inside the network no longer grants automatic access.
+
+\subsection{Least-Privilege Access}
+
+    \subsubsection{Users and Devices Get Only the Access They Need}
+    % Role-based and attribute-based access control.
+
+    \subsubsection{Minimizing the Blast Radius of a Breach}
+    % How least privilege limits damage from compromised accounts.
+
+\subsection{Assume Breach Mentality}
+
+    \subsubsection{Designing Systems as if Attackers Are Already Inside}
+    % Shifts focus from prevention-only to detection and containment.
+
+    \subsubsection{Micro-Segmentation of Networks}
+    % Isolating workloads to prevent lateral movement.
+
+\subsection{Continuous Monitoring and Validation}
+
+    \subsubsection{Real-Time Telemetry and Behavioral Analytics}
+    % Logging, SIEM integration, anomaly detection.
+
+    \subsubsection{Dynamic Policy Enforcement}
+    % Policies adapt in real time based on risk signals.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% IV. KEY COMPONENTS \& TECHNOLOGIES  (~1.5 pages)
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Key Components and Technologies}
+
+\subsection{Identity and Access Management (IAM)}
+
+    \subsubsection{Multi-Factor Authentication (MFA)}
+    % Why passwords alone are insufficient.
+
+    \subsubsection{Single Sign-On (SSO) and Identity Providers}
+    % Centralized identity management across services.
+
+\subsection{Device Health and Endpoint Security}
+
+    \subsubsection{Device Trust Scoring / Posture Assessment}
+    % Evaluating device compliance before granting access.
+
+    \subsubsection{Mobile Device Management (MDM)}
+    % Enforcing policy on employee and BYOD devices.
+
+\subsection{Micro-Segmentation}
+
+    \subsubsection{Software-Defined Perimeters}
+    % Creating dynamic, identity-bound network boundaries.
+
+    \subsubsection{East-West Traffic Control}
+    % Controlling lateral traffic inside the network.
+
+\subsection{Policy Decision Point (PDP) and Policy Enforcement Point (PEP)}
+
+    \subsubsection{How ZTA Makes Access Decisions}
+    % The policy engine evaluates context and grants/denies access.
+
+    \subsubsection{Role of the Policy Engine}
+    % Coordinates trust signals from identity, device, and data sources.
+
+\subsection{Encryption and Data Security}
+
+    \subsubsection{Encryption in Transit and at Rest}
+    % TLS, end-to-end encryption requirements.
+
+    \subsubsection{Data Loss Prevention (DLP) Tools}
+    % Preventing sensitive data from leaving controlled environments.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% V. REAL-WORLD IMPLEMENTATIONS \& CASE STUDIES  (~1.5 pages)
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Real-World Implementations and Case Studies}
+
+\subsection{Google BeyondCorp}
+
+    \subsubsection{Transition Away from VPN-Based Access}
+    % Replaced traditional VPN with context-aware access.
+
+    \subsubsection{Results and Lessons Learned}
+    % Improved security posture; template for enterprise adoption.
+
+\subsection{U.S. Federal Government Mandate}
+
+    \subsubsection{Executive Order 14028 (2021)}
+    % Required federal agencies to adopt ZTA frameworks.
+
+    \subsubsection{CISA's Zero Trust Maturity Model}
+    % Five pillars: Identity, Devices, Networks, Applications, Data.
+
+\subsection{Enterprise Adoption Example}
+% TODO: Choose a case study — e.g., Microsoft, Okta, a healthcare or
+% financial services organization.
+
+    \subsubsection{Implementation Overview}
+    % What they deployed, timeline, tools used.
+
+    \subsubsection{Outcomes}
+    % Reduced breach surface, improved compliance posture.
+
+\subsection{Common Implementation Challenges Observed Across Cases}
+% Tie together patterns from all three examples above.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% VI. CHALLENGES \& CRITICISMS  (~1 page)
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Challenges and Criticisms}
+
+\subsection{Implementation Complexity}
+
+    \subsubsection{Legacy System Integration Issues}
+    % Older infrastructure often cannot support ZTA natively.
+
+    \subsubsection{High Upfront Cost and Resource Demands}
+    % Budget and staffing requirements for full deployment.
+
+\subsection{Organizational and Cultural Resistance}
+
+    \subsubsection{User Friction from Stricter Authentication}
+    % MFA fatigue; user experience trade-offs.
+
+    \subsubsection{IT Staff Retraining Requirements}
+    % Shift in mindset and skillset needed for ZTA operations.
+
+\subsection{Vendor Lock-In Risks}
+
+    \subsubsection{Reliance on Specific Platforms}
+    % Risk of dependence on a single vendor ecosystem.
+
+    \subsubsection{Interoperability Concerns}
+    % Challenges integrating multi-vendor ZTA components.
+
+\subsection{ZTA Is Not a Silver Bullet}
+
+    \subsubsection{What It Does Not Protect Against}
+    % e.g., insider threats with valid credentials, social engineering.
+
+    \subsubsection{Ongoing Maintenance Requirements}
+    % ZTA requires continuous tuning — it is not set-and-forget.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% VII. FUTURE OUTLOOK  (~0.5 page)
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Future Outlook}
+
+\subsection{AI and ML Integration with ZTA}
+% Adaptive, intelligent policy enforcement using behavioral models.
+
+\subsection{ZTA in IoT and Operational Technology (OT) Environments}
+% Extending Zero Trust beyond traditional IT to physical/industrial systems.
+
+\subsection{Post-Quantum Cryptography Readiness}
+% How ZTA frameworks must adapt to quantum computing threats.
+
+\subsection{Regulatory Pressure Driving Broader Adoption}
+% Increasing compliance requirements (CMMC, NIS2, etc.) mandating ZTA.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% VIII. CONCLUSION  (~0.5 page)
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Conclusion}
+
+\subsection{Restate the Problem}
+% Why the traditional perimeter model is no longer viable.
+
+\subsection{Summarize ZTA's Core Value Proposition}
+% Identity-centric, continuous verification, least privilege.
+
+\subsection{Acknowledge Limitations}
+% Honest assessment of cost, complexity, and gaps.
+
+\subsection{Closing Argument}
+% ZTA is not optional — it is the foundational security model for the
+% modern enterprise.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% REFERENCES
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\bibliographystyle{apalike}   % Change to ieeetr, plain, etc. as needed
+% \bibliography{references}   % Uncomment and point to your .bib file
+
+% ── Suggested sources (add to your .bib file) ─────────────────────────────────
+% Rose, S., Borchert, O., Mitchell, S., & Connelly, S. (2020).
+%   Zero Trust Architecture. NIST Special Publication 800-207.
+%   https://doi.org/10.6028/NIST.SP.800-207
+%
+% Kindervag, J. (2010). No More Chewy Centers: Introducing the Zero Trust
+%   Model of Information Security. Forrester Research.
+%
+% Ward, B., & Beyer, B. (2014). BeyondCorp: A New Approach to Enterprise
+%   Security. USENIX ;login: Magazine, 39(6).
+%
+% Executive Order 14028 on Improving the Nation's Cybersecurity. (2021).
+%   Federal Register. https://www.federalregister.gov/d/2021-10460
+%
+% CISA. (2023). Zero Trust Maturity Model (Version 2.0).
+%   Cybersecurity and Infrastructure Security Agency.
+%   https://www.cisa.gov/zero-trust-maturity-model
+
+\end{document}
