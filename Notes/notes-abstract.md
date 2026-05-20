@@ -1,18 +1,17 @@
-# Notes — Abstract
+# Notes — Abstract (~150 words)
 
-**Target:** ~150 words
-**Key question to answer:** What is ZTA, why does it matter, and what does this paper argue?
-
----
-
-## My Raw Notes (write here as you read)
-
-
+**Job:** Argue, don't just summarize. The abstract should feel like a thesis statement with context.
 
 ---
 
-## What to Cover
-- What is Zero Trust Architecture (1–2 sentences)
-- Why the old model is failing (1 sentence)
-- What this paper examines / argues (1–2 sentences)
-- Main conclusion or takeaway (1 sentence)
+## My Raw Notes
+
+
+
+---
+
+## Checklist
+- [ ] State that perimeter security is broken (1 sentence)
+- [ ] Name ZTA as the argued response (1–2 sentences)
+- [ ] Briefly describe what the paper does: examines failures, explains ZTA, evaluates it honestly
+- [ ] End with a clear statement of the paper's position

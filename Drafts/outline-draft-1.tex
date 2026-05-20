@@ -3,12 +3,11 @@
 % ── Packages ──────────────────────────────────────────────────────────────────
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
-\usepackage{times}           % Times New Roman font
-\usepackage{titlesec}        % Custom section headings
-\usepackage{parskip}         % Paragraph spacing
-\usepackage{hyperref}        % Clickable references
-\usepackage{natbib}          % Bibliography (swap for biblatex if preferred)
-\usepackage{lipsum}          % REMOVE when filling in real content
+\usepackage{times}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{natbib}
 
 % ── Spacing ───────────────────────────────────────────────────────────────────
 \doublespacing
@@ -18,13 +17,7 @@
 \titleformat{\subsection}{\normalsize\bfseries}{\Alph{subsection}.}{1em}{}
 \titleformat{\subsubsection}{\normalsize\itshape}{\arabic{subsubsection}.}{1em}{}
 
-% ── Hyperlink Setup ───────────────────────────────────────────────────────────
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    citecolor=black,
-    urlcolor=blue
-}
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue}
 
 % ══════════════════════════════════════════════════════════════════════════════
 \begin{document}
@@ -33,8 +26,8 @@
 \begin{titlepage}
     \centering
     \vspace*{2cm}
-    {\LARGE\bfseries Zero Trust Architecture: Redefining Security\\
-    in the Modern Enterprise\par}
+    {\LARGE\bfseries The Perimeter is Dead: Why Zero Trust Architecture\\
+    Is the Only Rational Path Forward for Modern Cybersecurity\par}
     \vspace{2cm}
     {\large Your Name\par}
     \vspace{0.5cm}
@@ -47,11 +40,14 @@
 
 % ── Abstract ──────────────────────────────────────────────────────────────────
 \begin{abstract}
-% ~150 words — brief overview of ZTA, why perimeter-based security is failing,
-% what this paper examines, and the key conclusion.
+% ~150 words — argumentative abstract.
+% Open with the claim: the dominant security model is fundamentally broken.
+% Name the threat landscape briefly. Introduce ZTA as the argued solution.
+% State that this paper examines the failures of perimeter security,
+% explains ZTA from first principles, and argues that despite real challenges,
+% ZTA represents the only coherent response to the modern threat landscape.
 %
-% TODO: Write abstract here.
-\lipsum[1] % DELETE this line and replace with your abstract
+% TODO: Write your abstract here.
 \end{abstract}
 
 \newpage
@@ -60,261 +56,372 @@
 
 % ══════════════════════════════════════════════════════════════════════════════
 % I. INTRODUCTION  (~0.5 page)
+% Tone: Establish urgency. Hook the reader. State the thesis clearly.
+% Audience: Anyone — accessible language, no jargon yet.
 % ══════════════════════════════════════════════════════════════════════════════
 \section{Introduction}
 
-\subsection{Hook / Opening}
-% Rise in cyberattacks, data breaches, ransomware — set the scene.
+\subsection{Hook}
+% Open with a concrete, dramatic example of a breach that happened
+% BECAUSE an attacker moved freely inside a trusted network.
+% Good options: SolarWinds (2020), Colonial Pipeline (2021),
+% Target breach (2013) — all exploited implicit internal trust.
+% One paragraph. Make the reader feel the stakes immediately.
 
-\subsection{Problem Statement}
-% The "castle-and-moat" perimeter model no longer works in a cloud-first,
-% remote-work world.
-
-\subsection{Thesis Statement}
-% Zero Trust Architecture offers a more resilient, identity-centric approach
-% to cybersecurity for modern distributed environments.
+\subsection{The Thesis}
+% State the argument plainly:
+% The model that has governed cybersecurity for decades — trust
+% everything inside the network, distrust everything outside — is
+% not just outdated; it is actively dangerous. Zero Trust Architecture
+% offers a fundamentally different approach, and this paper argues
+% that adopting it is not optional but necessary.
 
 \subsection{Roadmap}
-% Brief overview of what each section covers.
+% One short paragraph: this paper first examines what is broken
+% and why, then introduces ZTA, explains how it works technically,
+% and evaluates it honestly — strengths, weaknesses, and future trajectory.
 
 % ══════════════════════════════════════════════════════════════════════════════
-% II. BACKGROUND \& HISTORY  (~1 page)
+% II. THE BROKEN STATUS QUO: WHY THE CURRENT MODEL FAILS  (~1.25 pages)
+% Tone: Critical, evidence-based. Build the "prosecution" of perimeter security.
+% Audience: General — keep analogies accessible, cite breaches as evidence.
 % ══════════════════════════════════════════════════════════════════════════════
-\section{Background and History}
+\section{The Broken Status Quo: Why the Current Model Fails}
 
-\subsection{Traditional Perimeter-Based Security Models}
+\subsection{How Perimeter Security Works — and Why It Made Sense}
+% Explain the castle-and-moat model in plain terms.
+% A firewall is the drawbridge: get past it, and you're trusted.
+% This was reasonable when all employees, servers, and data
+% lived inside one physical building on one internal network.
 
-    \subsubsection{How They Worked}
-    % Trusted inside, untrusted outside — the implicit trust model.
+\subsection{The Assumptions That No Longer Hold}
+% List and explain each broken assumption:
 
-    \subsubsection{Limitations}
-    % Failure modes exposed by cloud computing, BYOD, and remote work.
+    \subsubsection{The Network Is No Longer a Fixed Perimeter}
+    % Cloud computing moved data and applications outside the castle.
+    % Remote work moved users outside. SaaS tools bypassed the firewall entirely.
+    % There is no longer a clear "inside" and "outside."
 
-\subsection{Origins of Zero Trust}
+    \subsubsection{Credentials Are Not Identity}
+    % A stolen username and password looks identical to a legitimate login.
+    % Phishing, credential stuffing, and social engineering routinely
+    % produce valid credentials for attackers.
 
-    \subsubsection{John Kindervag's 2010 Forrester Research Paper}
-    % Coined the term "Zero Trust"; challenged the concept of trusted networks.
+    \subsubsection{Trusted Insiders Are Not Always Trustworthy}
+    % Insider threats — malicious or accidental — originate from
+    % accounts that the perimeter model already trusted completely.
 
-    \subsubsection{Google's BeyondCorp}
-    % One of the earliest large-scale real-world implementations.
+\subsection{The Evidence: A Pattern of Systemic Failure}
+% This is your strongest argumentative section — use real breaches as evidence.
+% Each example should illustrate a specific failure of perimeter trust.
 
-\subsection{Evolution and Growing Industry Adoption}
-% From niche concept to mainstream security framework.
+    \subsubsection{SolarWinds (2020)}
+    % Attackers compromised a software update pipeline.
+    % Because the software was trusted, so was the malware.
+    % Once inside federal networks, lateral movement was unrestricted.
 
-\subsection{NIST SP 800-207 (2020)}
-% Formal standardization of Zero Trust Architecture by NIST.
+    \subsubsection{Colonial Pipeline (2021)}
+    % A single compromised VPN credential — with no MFA —
+    % gave attackers access that shut down fuel supply to the Eastern U.S.
 
-% ══════════════════════════════════════════════════════════════════════════════
-% III. CORE PRINCIPLES OF ZERO TRUST  (~1.5 pages)
-% ══════════════════════════════════════════════════════════════════════════════
-\section{Core Principles of Zero Trust}
+    \subsubsection{The Scale of the Problem}
+    % Cite a current stat on breach costs, frequency, or dwell time
+    % (how long attackers stay inside undetected before discovery).
+    % IBM Cost of a Data Breach report is a good source for this.
 
-\subsection{``Never Trust, Always Verify''}
-
-    \subsubsection{Continuous Authentication and Authorization}
-    % Every request must be authenticated regardless of origin.
-
-    \subsubsection{No Implicit Trust Based on Network Location}
-    % Being inside the network no longer grants automatic access.
-
-\subsection{Least-Privilege Access}
-
-    \subsubsection{Users and Devices Get Only the Access They Need}
-    % Role-based and attribute-based access control.
-
-    \subsubsection{Minimizing the Blast Radius of a Breach}
-    % How least privilege limits damage from compromised accounts.
-
-\subsection{Assume Breach Mentality}
-
-    \subsubsection{Designing Systems as if Attackers Are Already Inside}
-    % Shifts focus from prevention-only to detection and containment.
-
-    \subsubsection{Micro-Segmentation of Networks}
-    % Isolating workloads to prevent lateral movement.
-
-\subsection{Continuous Monitoring and Validation}
-
-    \subsubsection{Real-Time Telemetry and Behavioral Analytics}
-    % Logging, SIEM integration, anomaly detection.
-
-    \subsubsection{Dynamic Policy Enforcement}
-    % Policies adapt in real time based on risk signals.
+\subsection{The Conclusion the Evidence Forces}
+% Transition paragraph: Given this evidence, continuing to rely on
+% perimeter security is not a conservative choice — it is a reckless one.
+% The industry needs a fundamentally different model.
+% That model is Zero Trust Architecture.
 
 % ══════════════════════════════════════════════════════════════════════════════
-% IV. KEY COMPONENTS \& TECHNOLOGIES  (~1.5 pages)
+% III. WHAT IS ZERO TRUST? A FIRST-PRINCIPLES EXPLANATION  (~1 page)
+% Tone: Explanatory, building from simple to complex.
+% Audience: Starts accessible, becomes moderately technical by end of section.
 % ══════════════════════════════════════════════════════════════════════════════
-\section{Key Components and Technologies}
+\section{What Is Zero Trust Architecture?}
 
-\subsection{Identity and Access Management (IAM)}
+\subsection{The Core Idea in Plain Language}
+% Zero Trust begins with a single premise: do not trust any user,
+% device, or system by default — regardless of where they are.
+% Every access request must be authenticated, authorized, and
+% continuously validated. Trust is earned per-request, not granted at the door.
+%
+% Use the "badge scan on every door" analogy here — even if you
+% already badged into the building, each room requires a new scan.
+
+\subsection{Origin and Formalization}
+% John Kindervag (Forrester, 2010) coined the term and the framework.
+% Google built it internally as BeyondCorp after the 2009 Operation Aurora breach.
+% NIST SP 800-207 (2020) formalized ZTA as a national standard.
+% Executive Order 14028 (2021) made it a federal mandate.
+
+\subsection{The Three Foundational Principles}
+
+    \subsubsection{Never Trust, Always Verify}
+    % Every request — from inside or outside the network — is treated
+    % as potentially hostile until proven otherwise. Authentication is
+    % continuous, not a one-time event at login.
+
+    \subsubsection{Least-Privilege Access}
+    % Users, devices, and applications receive only the permissions
+    % required to perform their specific function. Nothing more.
+    % This limits how far an attacker can move even with valid credentials.
+
+    \subsubsection{Assume Breach}
+    % The system is designed on the assumption that a breach will occur —
+    % or already has. The goal is containment and rapid detection,
+    % not just prevention. This flips the entire defensive posture.
+
+\subsection{What ZTA Is Not}
+% ZTA is not a product, not a single technology, and not a one-time project.
+% It is a security philosophy and architectural strategy implemented
+% across an organization's people, processes, and technology over time.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% IV. HOW IT WORKS: THE TECHNICAL ARCHITECTURE  (~1.5 pages)
+% Tone: Technical — this is the "how" section.
+% Audience: Informed reader / CS/IT student level.
+% ══════════════════════════════════════════════════════════════════════════════
+\section{How Zero Trust Works: Technical Architecture and Components}
+
+\subsection{The NIST Logical Architecture}
+% Describe the three-component model from NIST SP 800-207:
+% - Policy Engine (PE): makes the trust decision
+% - Policy Administrator (PA): communicates the decision
+% - Policy Enforcement Point (PEP): executes the decision
+% Walk through how a single access request flows through all three.
+
+\subsection{Identity as the New Perimeter}
+
+    \subsubsection{Identity and Access Management (IAM)}
+    % In ZTA, identity replaces the network as the primary trust boundary.
+    % Who you are and what you're permitted to do drives every decision.
 
     \subsubsection{Multi-Factor Authentication (MFA)}
-    % Why passwords alone are insufficient.
+    % Passwords alone are insufficient. MFA requires a second proof:
+    % hardware token, authenticator app, biometric, etc.
 
-    \subsubsection{Single Sign-On (SSO) and Identity Providers}
-    % Centralized identity management across services.
+    \subsubsection{Single Sign-On and Identity Providers}
+    % Centralized platforms (Okta, Azure Active Directory, Google Workspace)
+    % act as the authoritative source of identity across all systems.
 
-\subsection{Device Health and Endpoint Security}
+\subsection{Device Trust}
 
-    \subsubsection{Device Trust Scoring / Posture Assessment}
-    % Evaluating device compliance before granting access.
+    \subsubsection{Posture Assessment}
+    % Before granting access, the system checks device compliance:
+    % OS patch level, encryption status, EDR presence, enrollment status.
+    % A device that fails posture checks is denied or sandboxed.
 
-    \subsubsection{Mobile Device Management (MDM)}
-    % Enforcing policy on employee and BYOD devices.
+    \subsubsection{Continuous Device Monitoring}
+    % Device trust is not checked once at connection — it is re-evaluated
+    % continuously. A device that becomes non-compliant mid-session
+    % can lose access in real time.
 
 \subsection{Micro-Segmentation}
 
-    \subsubsection{Software-Defined Perimeters}
-    % Creating dynamic, identity-bound network boundaries.
+    \subsubsection{Replacing the Flat Network}
+    % Traditional networks are "flat" — once inside, lateral movement is easy.
+    % Micro-segmentation divides the network into isolated zones,
+    % each requiring separate authorization to enter.
 
-    \subsubsection{East-West Traffic Control}
-    % Controlling lateral traffic inside the network.
+    \subsubsection{Controlling East-West Traffic}
+    % Most attacks move laterally (east-west) after initial entry.
+    % Micro-segmentation is the primary technical control against this.
 
-\subsection{Policy Decision Point (PDP) and Policy Enforcement Point (PEP)}
+\subsection{Continuous Monitoring and Analytics}
 
-    \subsubsection{How ZTA Makes Access Decisions}
-    % The policy engine evaluates context and grants/denies access.
+    \subsubsection{Real-Time Telemetry}
+    % Every action generates logs: logins, file accesses, API calls, anomalies.
+    % This data feeds into SIEM systems and behavioral analytics platforms.
 
-    \subsubsection{Role of the Policy Engine}
-    % Coordinates trust signals from identity, device, and data sources.
+    \subsubsection{Adaptive Policy Enforcement}
+    % Risk scores update continuously. A user flagged mid-session
+    % can be step-up authenticated, rate-limited, or terminated automatically.
+    % Machine learning models identify anomalies faster than humans can.
 
-\subsection{Encryption and Data Security}
+\subsection{Data Protection}
 
-    \subsubsection{Encryption in Transit and at Rest}
-    % TLS, end-to-end encryption requirements.
+    \subsubsection{Encryption Everywhere}
+    % mTLS (mutual TLS) ensures both ends of every connection are verified.
+    % Data at rest is encrypted; data in transit is encrypted.
 
-    \subsubsection{Data Loss Prevention (DLP) Tools}
-    % Preventing sensitive data from leaving controlled environments.
-
-% ══════════════════════════════════════════════════════════════════════════════
-% V. REAL-WORLD IMPLEMENTATIONS \& CASE STUDIES  (~1.5 pages)
-% ══════════════════════════════════════════════════════════════════════════════
-\section{Real-World Implementations and Case Studies}
-
-\subsection{Google BeyondCorp}
-
-    \subsubsection{Transition Away from VPN-Based Access}
-    % Replaced traditional VPN with context-aware access.
-
-    \subsubsection{Results and Lessons Learned}
-    % Improved security posture; template for enterprise adoption.
-
-\subsection{U.S. Federal Government Mandate}
-
-    \subsubsection{Executive Order 14028 (2021)}
-    % Required federal agencies to adopt ZTA frameworks.
-
-    \subsubsection{CISA's Zero Trust Maturity Model}
-    % Five pillars: Identity, Devices, Networks, Applications, Data.
-
-\subsection{Enterprise Adoption Example}
-% TODO: Choose a case study — e.g., Microsoft, Okta, a healthcare or
-% financial services organization.
-
-    \subsubsection{Implementation Overview}
-    % What they deployed, timeline, tools used.
-
-    \subsubsection{Outcomes}
-    % Reduced breach surface, improved compliance posture.
-
-\subsection{Common Implementation Challenges Observed Across Cases}
-% Tie together patterns from all three examples above.
+    \subsubsection{Data Loss Prevention (DLP)}
+    % Even authorized users can trigger DLP policies if their behavior
+    % looks like exfiltration — unusual volumes, unusual destinations, etc.
 
 % ══════════════════════════════════════════════════════════════════════════════
-% VI. CHALLENGES \& CRITICISMS  (~1 page)
+% V. THE ARGUMENT IN PRACTICE: REAL-WORLD IMPLEMENTATION  (~1 page)
+% Tone: Evidence-based — this section supports the thesis with proof.
+% Audience: General to technical.
 % ══════════════════════════════════════════════════════════════════════════════
-\section{Challenges and Criticisms}
+\section{The Argument in Practice: Real-World Implementation}
 
-\subsection{Implementation Complexity}
+\subsection{Google BeyondCorp — Proof of Concept at Scale}
+% Google eliminated VPNs entirely. Access decisions are made based on
+% device state and user identity — location is irrelevant.
+% Running at scale for 100,000+ employees since ~2011.
+% Published the architecture openly; became the industry blueprint.
 
-    \subsubsection{Legacy System Integration Issues}
-    % Older infrastructure often cannot support ZTA natively.
+\subsection{The U.S. Federal Government}
+% EO 14028 mandated ZTA across all federal agencies.
+% CISA's Zero Trust Maturity Model provides the implementation roadmap
+% across five pillars: Identity, Devices, Networks, Applications, Data.
+% Highlight both progress made and remaining challenges.
 
-    \subsubsection{High Upfront Cost and Resource Demands}
-    % Budget and staffing requirements for full deployment.
+\subsection{Enterprise Adoption: An Emerging Standard}
+% Describe the common enterprise entry point: usually MFA/IAM first,
+% then device trust, then micro-segmentation.
+% Add your chosen industry example here (healthcare, finance, etc.).
 
-\subsection{Organizational and Cultural Resistance}
-
-    \subsubsection{User Friction from Stricter Authentication}
-    % MFA fatigue; user experience trade-offs.
-
-    \subsubsection{IT Staff Retraining Requirements}
-    % Shift in mindset and skillset needed for ZTA operations.
-
-\subsection{Vendor Lock-In Risks}
-
-    \subsubsection{Reliance on Specific Platforms}
-    % Risk of dependence on a single vendor ecosystem.
-
-    \subsubsection{Interoperability Concerns}
-    % Challenges integrating multi-vendor ZTA components.
-
-\subsection{ZTA Is Not a Silver Bullet}
-
-    \subsubsection{What It Does Not Protect Against}
-    % e.g., insider threats with valid credentials, social engineering.
-
-    \subsubsection{Ongoing Maintenance Requirements}
-    % ZTA requires continuous tuning — it is not set-and-forget.
+\subsection{What the Evidence Shows}
+% Tie the case studies back to the thesis:
+% Organizations that have implemented ZTA report reduced breach impact,
+% faster threat detection, and improved compliance posture.
+% This is the argument's supporting evidence — use it explicitly.
 
 % ══════════════════════════════════════════════════════════════════════════════
-% VII. FUTURE OUTLOOK  (~0.5 page)
+% VI. BENEFITS: WHY ZERO TRUST WINS  (~0.5 page)
+% Tone: Affirmative — building the positive case.
 % ══════════════════════════════════════════════════════════════════════════════
-\section{Future Outlook}
+\section{Benefits: Why Zero Trust Wins}
 
-\subsection{AI and ML Integration with ZTA}
-% Adaptive, intelligent policy enforcement using behavioral models.
+\subsection{Reduced Attack Surface and Blast Radius}
+% Least privilege + micro-segmentation = attackers get less even when they win.
 
-\subsection{ZTA in IoT and Operational Technology (OT) Environments}
-% Extending Zero Trust beyond traditional IT to physical/industrial systems.
+\subsection{Breach Containment Instead of Just Prevention}
+% ZTA acknowledges that breaches happen — and is designed to limit their damage.
+% This is a more honest and effective security posture.
 
-\subsection{Post-Quantum Cryptography Readiness}
-% How ZTA frameworks must adapt to quantum computing threats.
+\subsection{Visibility Across the Entire Environment}
+% Continuous monitoring gives security teams unprecedented insight.
+% Dwell time — the time attackers go undetected — drops significantly.
 
-\subsection{Regulatory Pressure Driving Broader Adoption}
-% Increasing compliance requirements (CMMC, NIS2, etc.) mandating ZTA.
+\subsection{Secure Enablement of the Modern Workforce}
+% Remote work, cloud, and mobile are secure by design, not by exception.
+% ZTA makes the way people actually work today compatible with security.
 
 % ══════════════════════════════════════════════════════════════════════════════
-% VIII. CONCLUSION  (~0.5 page)
+% VII. COUNTERARGUMENTS AND HONEST CRITICISMS  (~0.75 page)
+% Tone: Fair, but rebutted. Acknowledge real challenges, then address them.
+% This is what separates a strong argument from a one-sided one.
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Counterarguments and Honest Criticisms}
+
+\subsection{``It's Too Expensive and Complex''}
+% Acknowledge: true, especially for legacy-heavy organizations.
+% Counter: the cost of not adopting ZTA — breach costs, regulatory fines,
+% reputational damage — vastly exceeds implementation investment.
+% The question is not whether to afford ZTA, but whether to afford a breach.
+
+\subsection{``It Creates Too Much User Friction''}
+% Acknowledge: MFA fatigue and stepped-up authentication are real.
+% Counter: modern ZTA implementations use risk-based authentication —
+% low-risk, normal behavior gets seamless access; only anomalies trigger friction.
+% Good UX and good security are not mutually exclusive.
+
+\subsection{``ZTA Doesn't Stop Everything''}
+% Acknowledge: true. Insider threats with valid credentials, zero-days,
+% and social engineering still pose risks ZTA does not fully address.
+% Counter: no security model eliminates all risk. The argument for ZTA
+% is not perfection — it is that it fails better than the alternative.
+% A contained breach is incomparably better than an uncontrolled one.
+
+\subsection{Vendor Lock-In and Interoperability}
+% Acknowledge: real concern, especially for multi-cloud or multi-vendor environments.
+% Counter: open standards (NIST SP 800-207, FIDO2, OpenID Connect) exist
+% precisely to prevent this; responsible ZTA implementations use them.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% VIII. THE FUTURE: ZTA IS NOT THE DESTINATION — IT IS THE DIRECTION  (~0.5 page)
+% Tone: Forward-looking, confident.
+% ══════════════════════════════════════════════════════════════════════════════
+\section{The Future: ZTA Is the Direction, Not the Destination}
+
+\subsection{AI-Driven Adaptive Trust}
+% Machine learning makes ZTA smarter: policies auto-adjust in real time,
+% anomaly detection improves continuously, analyst workload decreases.
+
+\subsection{Extending Zero Trust to IoT and OT}
+% Billions of devices that were never designed with identity or trust in mind.
+% ZTA principles are being adapted for industrial and embedded systems.
+
+\subsection{Post-Quantum Readiness}
+% Quantum computing will break current encryption.
+% NIST's post-quantum cryptography standards will need to be integrated
+% into ZTA architectures as they are finalized.
+
+\subsection{From Best Practice to Baseline}
+% Regulatory mandates, cyber insurance requirements, and market pressure
+% are converging to make ZTA the default expectation, not the exception.
+% The industry is not debating whether to adopt it — only how fast.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% IX. CONCLUSION  (~0.5 page)
+% Tone: Strong, decisive. Restate the argument. Land the thesis.
 % ══════════════════════════════════════════════════════════════════════════════
 \section{Conclusion}
 
-\subsection{Restate the Problem}
-% Why the traditional perimeter model is no longer viable.
+\subsection{The Verdict on the Status Quo}
+% The perimeter model had its era. That era is over.
+% The evidence — breach after breach, year after year — makes this undeniable.
 
-\subsection{Summarize ZTA's Core Value Proposition}
-% Identity-centric, continuous verification, least privilege.
+\subsection{The Case for Zero Trust}
+% ZTA is not hype. It is a response to a documented, systemic failure.
+% The organizations that have implemented it demonstrate this.
 
-\subsection{Acknowledge Limitations}
-% Honest assessment of cost, complexity, and gaps.
+\subsection{A Fair Accounting}
+% ZTA is hard, expensive, and imperfect.
+% But it is the only model that honestly accounts for the threat landscape
+% that actually exists — not the one we wish existed.
 
-\subsection{Closing Argument}
-% ZTA is not optional — it is the foundational security model for the
-% modern enterprise.
+\subsection{Final Statement}
+% When trust is the vulnerability, the answer is to trust less —
+% and verify everything. That is not a philosophy. It is a necessity.
 
 % ══════════════════════════════════════════════════════════════════════════════
 % REFERENCES
 % ══════════════════════════════════════════════════════════════════════════════
 \newpage
-\bibliographystyle{apalike}   % Change to ieeetr, plain, etc. as needed
-% \bibliography{references}   % Uncomment and point to your .bib file
+\bibliographystyle{apalike}
+% \bibliography{references}   % Uncomment when your .bib file is ready
 
-% ── Suggested sources (add to your .bib file) ─────────────────────────────────
-% Rose, S., Borchert, O., Mitchell, S., & Connelly, S. (2020).
-%   Zero Trust Architecture. NIST Special Publication 800-207.
-%   https://doi.org/10.6028/NIST.SP.800-207
-%
-% Kindervag, J. (2010). No More Chewy Centers: Introducing the Zero Trust
-%   Model of Information Security. Forrester Research.
-%
-% Ward, B., & Beyer, B. (2014). BeyondCorp: A New Approach to Enterprise
-%   Security. USENIX ;login: Magazine, 39(6).
-%
-% Executive Order 14028 on Improving the Nation's Cybersecurity. (2021).
-%   Federal Register. https://www.federalregister.gov/d/2021-10460
-%
-% CISA. (2023). Zero Trust Maturity Model (Version 2.0).
-%   Cybersecurity and Infrastructure Security Agency.
-%   https://www.cisa.gov/zero-trust-maturity-model
+% ── .bib entry templates ──────────────────────────────────────────────────────
+% @techreport{nist2020,
+%   author      = {Rose, Scott and Borchert, Oliver and Mitchell, Stu and Connelly, Sean},
+%   title       = {Zero Trust Architecture},
+%   institution = {National Institute of Standards and Technology},
+%   year        = {2020},
+%   number      = {SP 800-207},
+%   doi         = {10.6028/NIST.SP.800-207}
+% }
+% @techreport{kindervag2010,
+%   author      = {Kindervag, John},
+%   title       = {No More Chewy Centers: Introducing the Zero Trust Model of Information Security},
+%   institution = {Forrester Research},
+%   year        = {2010}
+% }
+% @article{beyondcorp2014,
+%   author  = {Ward, Rory and Beyer, Betsy},
+%   title   = {{BeyondCorp}: A New Approach to Enterprise Security},
+%   journal = {USENIX ;login:},
+%   year    = {2014},
+%   volume  = {39},
+%   number  = {6}
+% }
+% @misc{eo14028,
+%   author = {{Executive Office of the President}},
+%   title  = {Executive Order 14028 on Improving the Nation's Cybersecurity},
+%   year   = {2021},
+%   url    = {https://www.federalregister.gov/d/2021-10460}
+% }
+% @techreport{cisa2023,
+%   author      = {{CISA}},
+%   title       = {Zero Trust Maturity Model},
+%   institution = {Cybersecurity and Infrastructure Security Agency},
+%   year        = {2023},
+%   edition     = {2}
+% }
 
 \end{document}
