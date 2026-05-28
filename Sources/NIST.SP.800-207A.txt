@@ -1,0 +1,83 @@
+NIST Special Publication NIST SP 800-207A
+A Zero Trust Architecture Model for Access Control in Cloud-Native Applications in Multi-Location Environments
+Ramaswamy Chandramouli, Zack Butcher
+
+This publication is available free of charge from: https://doi.org/10.6028/NIST.SP.800-207A
+September 2023
+
+How to cite: Chandramouli R, Butcher Z (2023) A Zero-Trust Architecture Model for Access Control in Cloud-Native Applications in Multi-Location Environments. (National Institute of Standards and Technology, Gaithersburg, MD), NIST Special Publication (SP) NIST SP 800-207A. https://doi.org/10.6028/NIST.SP.800-207A
+
+Abstract
+
+One of the basic tenets of zero trust is to remove the implicit trust in users, services, and devices based only on their network location, affiliation, and ownership. NIST Special Publication 800-207 has laid out a comprehensive set of zero trust principles and referenced zero trust architectures (ZTA) for turning those concepts into reality. A key paradigm shift in ZTAs is the change in focus from security controls based on segmentation and isolation using network parameters (e.g., Internet Protocol (IP) addresses, subnets, perimeter) to identities. From an application security point of view, this requires authentication and authorization policies based on application and service identities in addition to the underlying network parameters and user identities. This in turn requires a platform that consists of Application Programming Interface (API) gateways, sidecar proxies, and application identity infrastructures (e.g., Secure Production Identity Framework for Everyone [SPIFFE]) that can enforce those policies irrespective of the location of the services or applications, whether on-premises or on multiple clouds. The objective of this publication is to provide guidance for realizing an architecture that can enforce granular application-level policies while meeting the runtime requirements of ZTA for multi-cloud and hybrid environments.
+
+Keywords: egress gateway; identity-tier policies; ingress gateway; microservices; multi-cloud; network-tier policies; service mesh; sidecar proxy; SPIFFE; transit gateway; zero trust; zero trust architecture.
+
+Executive Summary
+
+The principles of zero trust, as described in NIST Special Publication (SP) 800-207, have become the guiding markers for developing secure zero trust architecture. A well-established class of applications is the cloud-native application class. The generally accepted characterization of a cloud-native application includes the following:
+- The application is made up of a set of loosely coupled components called microservices. Each of the microservices can be hosted on different physical or virtual machines (VMs) and even be geographically distributed.
+- Any transaction involving the application may also involve one or more inter-service (microservice) calls across the network.
+- A widespread feature is the presence of a software platform called the service mesh that provides an integrated set of all application services.
+
+The realization of a zero trust architecture for the above class of cloud-native applications requires a robust policy framework. In order to follow zero trust principles, the constituent policies in the framework should consider the following:
+- There should not be implicit trust in users, services, or devices based exclusively on their network location, affiliation, or ownership. Hence, policy definitions and associated security controls based on the segmentation or isolation of networks using network parameters (e.g., IP addresses, subnets, perimeter) are insufficient. These policies fall under the classification of network-tier policies.
+- To ensure the presence of zero trust principles throughout the entire application, network-tier policies must be augmented with policies that establish trust in the identity of the various participating entities (e.g., users and services) irrespective of the location of the services or applications, whether on-premises or on multiple clouds.
+
+Introduction
+
+Zero trust (ZT) tenets or principles have been accepted as the guide markers for architecting all applications. There are several reasons why adherence to these tenets is critical for obtaining necessary security assurances, especially for cloud-native applications. The enterprise application environments for this class of applications are highly geographically distributed and span multiple cloud and on-premises environments. Further, the user base consists of both remote and on-premises employees. These two features call for establishing trust in all of the data sources and computing services of the enterprise — irrespective of their location — through secure communication and the validation of access policies.
+
+Background — Zero Trust Principles and Zero Trust Architecture
+
+A summary of the zero trust principles and the definition of a zero trust architecture, as described in SP 800-207, Zero Trust Architecture:
+- Zero trust is the term for an evolving set of cybersecurity paradigms that move defenses from static, network-based perimeters to focus on users and resources. It is a set of security primitives rather than a particular set of technologies. Zero trust assumes that there is no implicit trust granted to user accounts based solely on their physical or network location (i.e., local area networks versus the internet) or to endpoints (devices) based on their ownership. Zero trust focuses on protecting resources rather than network segments, as the network location is no longer seen as the prime component to the security posture of the resource.
+- A zero trust architecture uses zero trust principles to plan industrial and enterprise infrastructures and workflows.
+
+Designing a Policy Framework for ZTA for Cloud-Native Application Environments
+
+Based on the set of zero trust principles and some strawman ZTAs provided in SP 800-207, the following driver assumptions were formulated for realizing a ZTA for an enterprise cloud-native application environment:
+- Trust can no longer be based on a network perimeter as perimeters can always be breached.
+- Policies have to be defined based on the assumption that the attacker is already inside of the corporate network.
+- All access decisions have to rely on least-privilege, per-request, and context-based principles and on identities associated with users, services, and devices. This results in a form of runtime isolation for applications, which this document refers to as "identity-based segmentation."
+- No single component or function is sufficient to implement ZTA. Rather, they must collectively enforce zero trust principles across all applications in the infrastructure.
+
+Requirements for Identity-Based Segmentation Policies for ZTA
+
+The following policy checks should be implemented at runtime through the deployment of identity-tier policies in order to realize identity-based segmentation:
+- ID-SEG-REC-1: Encrypted connection between service endpoints — Wherever they are located, communication between any two should be encrypted to ensure eavesdropping protection and message authenticity.
+- ID-SEG-REC-2: Service authentication — Each service should present a short-lived cryptographically verifiable identity credential to other services that is authenticated per connection and reauthenticated regularly.
+- ID-SEG-REC-3: Service to service authorization — Services should leverage runtime service identity to enforce granular policies.
+- ID-SEG-REC-4: End user authentication — A robust identity management system is required to assign and maintain user identities and enforce robust protocols with phishing-resistant multi-factor authentication (MFA). This system should be used to issue a cryptographically verifiable runtime token that represents the user principal to the rest of the infrastructure.
+- ID-SEG-REC-5: End user to resource authorization — As part of each service access request, the system must ensure that the authenticated end user principal is authorized to act on the resources designated in the request.
+
+Limitations of Identity-Based Segmentation Policies for Enterprise ZTA
+
+While identity-based segmentation is powerful, purely identity-based policies cannot currently be adopted due to the following scenarios:
+- Identity-based segmentation policies can include access scenarios that cover all origins and all target resources, but enterprise scenarios that involve both on-premises and cloud-based applications require identification of the location of those resources using network parameters.
+- Having network-level policies alone requires high maintenance due to the continuous changes to their location parameters as containers and virtualized workloads are frequently migrated.
+
+Network-tier policies cannot be completely eliminated given current compliance requirements. However, relaxing requirements at the network level in exchange for introducing more descriptive policy at the identity level could lead to an improved overall security posture compared to network-tier security alone.
+
+Multi-Tier Policies for Enterprise ZTA
+
+A successful enterprise ZTA requires multi-tier policies that combine network-tier and identity-tier policies:
+- Network-tier policies — Allowed communication between enterprise network elements (e.g., firewall rules, which are relatively static).
+- Identity-tier policies — Access scope for services and resources based on service and user identities (e.g., dynamic application-to-application communication rules based on identities).
+
+Advantages of Identity-Tier Policies
+
+Policies based on service and application identities do not use any infrastructure-related variables (e.g., IP addresses, subnets), so they are environment-agnostic and provide the freedom for the services and applications to be migrated to different environments and still maintain the same policies.
+- Identity-tier policies enable the automated testing of policies.
+- Identity-tier policies enable "policy as code" (PaC).
+- Identity-tier policies enable fine-grained access control by providing visibility into application call sequences/interdependencies and data flows through request-level tracking.
+- "Write once, enforce everywhere" — policy can span environments and topologies rather than bespoke policies per environment.
+- Human-readable primitives — The written policies use human-understandable primitives rather than network-oriented primitives.
+
+Summary and Conclusions
+
+This document provides guidance for realizing a ZTA for cloud-native application platforms (microservices with a service mesh infrastructure) in the context of an enterprise environment in which applications are hosted in multi-cluster and multi-cloud deployments. A ZTA consists of deployment artifacts that enforce zero trust principles, which is only possible with robust, flexible, scalable, and granular policies that cover all enterprise resources. A policy framework that consists of network-tier and identity-tier policies to meet these goals has been proposed in this document. The critical role of identity-tier policies for realizing a ZTA in the context of modern cloud-native application infrastructures is emphasized.
+
+References
+
+[1] Rose S, Borchert O, Mitchell S, Connelly S (2020) Zero Trust Architecture. NIST SP 800-207. https://doi.org/10.6028/NIST.SP.800-207

@@ -1,0 +1,90 @@
+NIST Special Publication 1800-35
+Implementing a Zero Trust Architecture: High-Level Document
+
+Authors: Oliver Borchert, Gema Howell, Alper Kerman, Scott Rose, Murugiah Souppaya
+(National Institute of Standards and Technology, NCCoE)
+With collaborators from: The MITRE Corporation, Scarfone Cybersecurity, Dakota Consulting,
+and 24 industry technology partners including AWS, Cisco, Google Cloud, IBM, Microsoft, Palo Alto Networks, and Zscaler.
+
+Published: June 2025 (FINAL)
+DOI: https://doi.org/10.6028/NIST.SP.1800-35
+Available free of charge at: https://doi.org/10.6028/NIST.SP.1800-35
+
+How to cite: Borchert O, Howell G, Kerman A, Rose S, Souppaya M, et al. (2025) Implementing a Zero Trust Architecture. (National Institute of Standards and Technology, Gaithersburg, MD), NIST Special Publication (SP) NIST SP 1800-35. https://doi.org/10.6028/NIST.SP.1800-35
+
+Abstract
+
+A zero trust architecture (ZTA) enables secure authorized access to enterprise resources that are distributed across on-premises and multiple cloud environments, while enabling a hybrid workforce and partners to access resources from anywhere, at any time, from any device in support of the organization's mission. This NIST Cybersecurity Practice Guide explains how organizations can implement ZTA consistent with the concepts and principles outlined in NIST Special Publication (SP) 800-207, Zero Trust Architecture. The NCCoE worked with 24 collaborators under Cooperative Research and Development Agreements (CRADAs) to integrate commercially available technology to build 19 ZTA example implementations and demonstrate a number of common use cases. The Guide includes detailed technical information on each example ZTA implementation, providing models that organizations can emulate. The guide also summarizes best practices and lessons learned from the implementations and integrations to make it easier and more cost-effective to implement ZTA. Additionally, this guide includes mappings of ZTA principles and technologies to commonly used security standards and guidelines.
+
+Keywords: enhanced identity governance (EIG); identity, credential, and access management (ICAM); microsegmentation; secure access service edge (SASE); software-defined perimeter (SDP); zero trust; zero trust architecture (ZTA).
+
+Executive Summary
+
+A zero trust architecture (ZTA) is an enterprise cybersecurity architecture that is based on zero trust principles, such as those outlined in NIST Special Publication (SP) 800-207, Zero Trust Architecture, and that is designed to prevent data breaches and limit internal lateral movement. A ZTA can help your organization protect its data and resources no matter where they are located. A ZTA can also enable your workforce, contractors, partners, and other authorized parties to securely access the data and resources they need from anywhere at any time. ZTA implements a risk-based approach to cybersecurity — continuously evaluating and verifying conditions and requests to decide which access requests should be permitted, then ensuring that each access is properly safeguarded commensurate with risk. Because of their effectiveness against both internal and external threats, this architecture is increasingly being adopted, and some organizations are required to use a ZTA.
+
+There is no single approach for each organization to migrate to ZTA. Therefore, the NIST National Cybersecurity Center of Excellence (NCCoE) worked with 24 technology providers to demonstrate practical implementation of ZTA principles from NIST SP 800-207. Together, we have built and implemented 19 example ZTA solutions in lab environments, leveraging the technology from our collaborators. For each of the example ZTAs, we have outlined detailed technical information, including architecture, sample technologies leveraged, specific configurations and integrations of technologies, and use cases and scenarios demonstrated.
+
+By utilizing this guide, your organization can be better positioned to implement a ZTA that achieves the following:
+- Supports user access to resources regardless of user location or device (managed or unmanaged)
+- Protects sensitive information and other business assets and processes regardless of their location (on-premises or cloud-based)
+- Limits breaches by making it harder for attackers to move through an environment and by addressing the insider threat (insiders are not automatically trusted)
+- Performs continuous, real-time monitoring, logging, and risk-based assessment and enforcement of corporate policy
+
+Introduction
+
+This paper outlines the guidelines for organizations as they implement zero trust architecture (ZTA). The implementation best practices and lessons learned were identified through a collaborative project at the NCCoE that developed, demonstrated, and documented example ZTAs. The NCCoE and its collaborators have used commercially available technology in lab environments to build 19 interoperable, open standards-based ZTA implementations ("builds") that align with the concepts and principles in NIST SP 800-207, Zero Trust Architecture. The implementations include ZTA approaches for enhanced identity governance (EIG), software-defined perimeter (SDP), microsegmentation, and secure access service edge (SASE).
+
+Project Overview: Motivation
+
+Protecting enterprise data and resources has become increasingly challenging. Many users need access from anywhere, at any time, from any device to support the organization's mission. Data is created, stored, transmitted, and processed across different organizations' environments, which are distributed across on-premises and multiple clouds to meet ever-evolving business use cases. It is no longer feasible to simply protect data and resources at the perimeter of the enterprise environment or to assume that all users, devices, applications, and services within it can be trusted.
+
+A ZTA enables secure authorized access to assets — machines, applications, and services running on them, and associated data and resources — whether located on-premises or in the cloud, for a hybrid workforce and partners based on an organization's defined access policy. For each access request, ZTA explicitly verifies the context available at access time — this includes both static user profile information or non-person entity information, such as the requester's identity and role; and dynamic information, such as geolocation, the requesting device's health and credentials, the sensitivity of the resource, access pattern anomalies, and whether the request is warranted and in accordance with the organization's business process logic. If the defined policy is met, a secure session is created to protect all information transferred to and from the resource. A real-time, risk-based assessment of resource access and access pattern anomaly detection with continuous policy evaluation is performed to establish and maintain the access.
+
+Challenges in Implementing ZTA
+
+Throughout this project, numerous challenges organizations may face in implementing ZTA have been identified, including the following:
+
+Organization buy-in and support, such as:
+- Perception that ZTA is suited only for large organizations and requires significant investment, rather than understanding that ZTA is a set of guiding principles suitable for organizations of any size
+- Concern that ZTA might negatively impact the operation of the environment or end-user experience
+- Lack of resources to develop necessary policies and a pilot or proof-of-concept implementation needed to inform a transition plan
+- Leveraging existing investments and balancing priorities while making progress toward a ZTA via modernization initiatives
+- Lack of understanding regarding what additional skills and training administrators, security personnel, operators, end users, and policy decision-makers may require
+
+Missing foundational pieces, such as:
+- Lack of adequate asset inventory and management needed to fully understand the business applications, assets, and processes that need to be protected, with no clear understanding of the criticality of these resources
+- Lack of adequate digital definition, management, and tracking of user roles across the organization needed to enforce fine-grained, need-to-know access policy for specific applications and services
+- Lack of visibility of the organization's communications and usage patterns — limited understanding of the transactions that occur between an organization's subjects, assets, applications, and services
+
+Technical challenges, such as:
+- Integrating various types of commercially available technologies of varying maturities, assessing capabilities, and identifying technology gaps to build a ZTA
+- Lack of a standardized mechanism to distribute, manage, and enforce security policy, causing organizations to face a fragmented policy environment
+- Lack of common understanding and language of ZTA across the community and within the organization, gauging the organization's ZTA maturity, determining which ZTA approach is most suitable for the business
+
+There is not a single ZTA that fits all. ZTAs need to be designed and implemented for each organization based on the organization's requirements and risk tolerance, as well as its existing invested technologies and environments.
+
+Zero Trust Journey Takeaways
+
+1. Discover and Inventory the Existing Environment: Before implementing ZTA, organizations must understand what assets, data, and communication flows exist in their environment.
+
+2. Formulate Access Policy to Support the Mission and Business Use Cases: ZTA requires explicit, defined policies for each access scenario rather than implicit trust.
+
+3. Identify Existing Security Capabilities and Technology: Organizations should assess what zero trust capabilities they already have before procuring new solutions.
+
+4. Eliminate Gaps in Zero Trust Policy and Processes by Applying a Risk-Based Approach Based on the Value of Data: Prioritize protection based on data sensitivity and risk.
+
+5. Implement ZTA Components (People, Process, and Technology) and Incrementally Leverage Deployed Security Solutions: ZTA is a journey — organizations can build on existing investments rather than starting from scratch.
+
+6. Verify the Implementation to Support Zero Trust Outcomes: Test and validate that ZTA implementations actually enforce intended policies.
+
+7. Continuously Improve and Evolve Due to Changes in Threat Landscape, Mission, Technology, and Requirements: ZTA is not a destination but an ongoing process requiring continuous adaptation.
+
+Key Finding from General Findings
+
+The project found that "there is not a single ZTA that fits all." The implementations demonstrated that ZTA can be achieved through multiple architectural approaches (EIG, SDP, microsegmentation, SASE), and that these approaches can be combined to address an organization's specific requirements. All 19 builds demonstrated the ability to enforce ZTA principles, though with different strengths and implementation complexities.
+
+The project also found that discovery and inventory — understanding what assets exist and how they communicate — is a prerequisite for effective ZTA implementation, regardless of the approach chosen.
+
+References
+
+[1] Rose S, Borchert O, Mitchell S, Connelly S (2020) Zero Trust Architecture. (National Institute of Standards and Technology, Gaithersburg, MD), NIST Special Publication (SP) NIST SP 800-207. https://doi.org/10.6028/NIST.SP.800-207
